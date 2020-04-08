@@ -19,7 +19,7 @@ public class SendEmail {
 	public void sendEmail(String name, String email, String pwd) {
 		String host = "smtp.naver.com";
 		final String user = "sistc1296@naver.com";
-		final String password = "tpalvmfh93!";
+		final String password = "semipro93!";
 		
 		String to = email;
 

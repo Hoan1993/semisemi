@@ -21,8 +21,9 @@
 	Config co = new Config();
 	Config.content = "고객님의 인증번호는 [ "+certifiNum+" ] 입니다.";
 	Config.receiver = phone;
-
-	request.setAttribute("certifiNum", certifiNum);
+	
+	session.setAttribute("certifiNum", certifiNum);
+	//request.setAttribute("certifiNum", certifiNum);
 	System.out.println(certifiNum);
 	// 여기서 실제로 sms를 보낸다.
 	/* SendSMS sms = new SendSMS();

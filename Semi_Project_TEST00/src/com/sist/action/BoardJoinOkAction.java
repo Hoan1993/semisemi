@@ -6,6 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.model.MemberDAO;
 import com.sist.model.MemberVO;
@@ -18,8 +19,9 @@ public class BoardJoinOkAction implements Action{
 			throws IOException, ServletException {
 		
 		String url = "board_joinForm.do";
-		
-		String certifiNum = request.getParameter("certifiNum");
+		HttpSession session = request.getSession();
+	    String certifiNum = (String) session.getAttribute("certifiNum");
+		//String certifiNum = request.getParameter("certifiNum");
 		String certifiNumAnswer = request.getParameter("certifiNumAnswer");
 		
 		System.out.println(certifiNum+", "+certifiNumAnswer);
@@ -42,7 +44,7 @@ public class BoardJoinOkAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		
-		if(certifiNum.equals(certifiNumAnswer)) {
+		if(!certifiNum.equals(certifiNumAnswer)) {
 			result = -1;
 		}
 		
@@ -63,6 +65,8 @@ public class BoardJoinOkAction implements Action{
 			forward.setPath(url);
 		}
 		
+		
+		session.removeAttribute("certifiNum");
 
 		return forward;
 	}

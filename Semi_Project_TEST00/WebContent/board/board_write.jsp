@@ -5,37 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <link rel="stylesheet" href="css/bootstrap-3.4.1.css">
+<link rel="stylesheet" href="./css/styleForWriter.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	crossorigin="anonymous"></script> -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<!-- 
-Avalon Template 
-https://templatemo.com/tm-513-avalon
--->
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/fontAwesome.css">
-        <link rel="stylesheet" href="css/hero-slider.css">
-        <link rel="stylesheet" href="css/owl-carousel.css">
-        <link rel="stylesheet" href="css/datepicker.css">
-        <link rel="stylesheet" href="css/templatemo-style.css">
-
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-        
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>	
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
-
+   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+   crossorigin="anonymous"></script>
+<script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#fileInput").on('change', function() {
@@ -44,96 +18,212 @@ $(document).ready(function(){
 		} else {
 			var filename = $(this).val().split('/').pop().split('\\').pop();
 		}
-		
 		$("#userfile").val(filename);
 	});
 	
 });
 </script>
+ <style>
+/* #myWriter {
+	width: 1000px;
+	align: center;
+} */
 
+#subject {
+	width: 1000px;
+	height: 45px;
+	align: center;
+}
+#fileInput {
+	width: 500px;
+	align: center;
+}
 
+/* .col-sm-3 {
+	align: left;
+} */
+
+.content {
+	align: center;
+}
+
+.container {
+	width: 800px;
+}
+
+#mySelect1 {
+	width: 1000px;
+}
+
+</style> 
 </head>
-<body>
-	<div class="container">
-		<%@ include file="../include/header.jsp"%>
-		<!-- <div id="center-top">
-			<hr width="500" color="gray">
-		</div> -->
-	
-<%-- 	<form name="frm" method="post"
-		action="<%=request.getContextPath()%>/board_writeOk.do"> --%>
- <section class="contact-us" id="contact-section"> 
- 	
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8">
-                
-                <!-- Please visit https://templatemo.com/contact page if you do not know how to setup the contact form -->
-                
-                    <form id="contact" action="board_writeOk.do" method="post">
-                        <div class="row">
-                           <!--  <div class="col-md-4">
-                              <fieldset>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-md-4">
-                              <fieldset>
-                                <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
-                              </fieldset>
-                            </div> -->
-                             <div class="col-lg-12">
-                              <fieldset>
-                                <input name="subject" type="text" class="form-control" id="subject" placeholder="제목" required="">
-                              </fieldset>
-                            </div>
-                            <br /><br />
-                           
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <textarea name="message" rows="22" class="form-control" id="message" placeholder="여기에 쓰세요..." required=""></textarea>
-                              </fieldset>
-                            </div>
-                            <br /><br /><br />
-                            <div class="col-md-12">
-                            	<label for="InputSubject1">파일첨부</label>
-                            	<input id="fileInput" filestyle="" type="file" data-class-button="btn btn-default"
-                            	data-class-input="form-control" data-button-text="" data-icon-name="fa fa-upload" 
-                            	class="form-control" tableindex="-1" style="position: absolute; clip: rect(0px,0px,0px,0px);">
-                            	<div class="bootstrap-filestyle input-group">
-                            		<input type="text" id="userfile" class="form-control" name="userfile" disabled="">
-                            		<span class="group-span-filestyle input-group-btn" tabindex="0">
-                            			<label for="fileInput" class="btn btn-default">
-                            				<span class="glyphicon fa fa-upload"></span>
-                            			</label>
-                            		</span>
-                            	</div>
-                            </div>
-                            <br />
-                            <div class="col-lg-12" align="right">
-                            <br />
-                              <fieldset>
-                                <button type="submit" id="form-submit" class="btn btn-primary">등록</button> &nbsp;&nbsp;
-                                <button type="reset" id="form-reset" class="btn btn-danger">다시작성</button>                               
-                              </fieldset> 
-                            </div>
-                        </div>
-                    </form>
-                </div>
-              <%@ include file="../include/sidebar.jsp" %>
-            </div>
-        </div>
-        
-    </section>
-   
-    	
-    </div>
-    
-    
-    
-<!-- 		<input type="submit" value="등록" onClick="return boardCheck()">
-	</form> -->
 
-<%@ include file="../include/footer.jsp"%>
+<body>
+<%@ include file="../include/headerForWriting.jsp"%>
+<br />
+<div class="container">
+<%--      	<header>
+		<div id="login" align="right">
+			<a href="<%=request.getContextPath()%>/board_main.do">홈</a>
+			<!-- 초기페이지 -->
+			<a href="<%=request.getContextPath()%>/board_loginForm.do">로그인</a>
+			
+			<input type="button" id="loginBtn" value="Login"
+					onclick="	
+			if(this.value === 'Logout') {
+  			    gauth.signOut().then(function(){
+    		    console.log('gauth.signOut()');
+    		    checkLoginStatus();
+   			   });
+   		 	} else if(this.value === 'Login'){
+   		 		checkLoginStatus();
+   		 		moveToLogin();		
+   		 	}
+  			">
+			
+		</div>
+	</header> --%>
+	
+
+ 
+<!-- 	<div class="container">
+	<div class="content" style="width: 950px">
+		<div class="row justify-content-md-center" id="mySelct1">
+			<div class="col-sm-3">
+				<div class="col-lg-12">
+                                 <select name="article_type1" id="mySelect2">
+                                    <option value="politics">정치</option>
+                                    <option value="economy">경제</option>
+                                    <option value="society">사회</option>
+                                    <option value="culture">연예/문화</option>
+                                    <option value="world">세계</option>
+                                    <option value="science">IT/과학</option>
+                                    <option value="sports">스포츠</option>
+                                 </select>              
+               </div>
+           </div>  
+		</div>
+	</div> -->
+<!-- 컨테이너 끝  -->	
+<!-- 	<hr> -->
+	
+<!-- 	<div class="adjoined-top"> -->
+		<!-- <div class="grid-container"> -->
+<!-- 			<div class="content grid-width-100">
+				<h1>Congratulations!</h1>
+				<p>
+					If you can see CKEditor below, it means that the installation succeeded.
+					You can now try out your new editor version, see its features, and when you are ready to move on, check some of the <a href="#sample-customize">most useful resources</a> recommended below.
+				</p>
+			</div> -->
+		<!-- </div> -->
+<!-- 	</div> -->
+
+
+
+<form action="board_writeOk.do" method="post" class="frm" enctype="multipart/form-data">
+
+	<div align="center" class="row justify-content-md-center">
+				
+		
+		<input name="subject" type="text" class="form-control" id="subject"
+			placeholder="제목" required="">
+		<!-- <br /> -->
+		<div class="container" align="center">
+			<select class="form-control" id="mySelect1" name="mySelect1">
+				<option value="none">==분야선택==</option>
+				<option value="politics">정치</option>
+				<option value="economy">경제</option>
+				<option value="society">사회</option>
+				<option value="culture">연예/문화</option>
+				<option value="worle">세계</option>
+				<option value="science">IT/과학</option>
+				<option value="sports">스포츠</option>
+			</select>
+		</div>
+		
+		<br />
+			
+		<div class="col_c" style="margin-bottom: 30px">
+			<div class="input-group">
+				<textarea class="form-control" id="p_content" name="content"></textarea>
+				<script type="text/javascript">
+				
+				CKEDITOR.config.removePlugins = 'resize';
+				
+				CKEDITOR.replace('p_content'
+							,{height: 530, width: 1000
+							});
+				
+				/* $(function() {	    
+					  
+					}); */
+			
+				
+			</script>
+			
+			<div class="col-md-13" align="right">
+			<label for="InputSubject1">파일첨부</label> 
+			<input id="fileInput"
+				filestyle="" name="file" type="file"
+				data-class-button="btn btn-default" data-class-input="form-control"
+				data-button-text="" data-icon-name="fa fa-upload"
+				class="form-control" tableindex="-1"
+				style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+			<div class="bootstrap-filestyle input-group" align="right">
+				<input type="text" id="userfile" class="form-control"
+					name="userfile" disabled=""> <span
+					class="group-span-filestyle input-group-btn" tabindex="0"> <label
+					for="fileInput" class="btn btn-default"> <span
+						class="glyphicon fa fa-upload"></span>
+				</label>
+				</span>
+			</div>
+		</div>
+			
+			
+			</div>
+					<div class="col-lg-12" align="center">
+							<fieldset> 
+                                <button type="submit" id="form-submit" class="btn btn-primary">등록</button> &nbsp;&nbsp;
+                                <button type="reset" id="form-reset" class="btn btn-danger" >다시작성</button>                               
+							 </fieldset> 
+      				</div>
+		</div>
+		    		
+		
+		
+	</div>
+</form>
+</div>
+	<!-- 컨테이너 끝 -->
+   <!--    <div class="row justify-content-md-center">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">GitHub</span>
+              </div>
+              <input type="text" class="form-control">
+            </div>
+      </div> -->
+ 
+                            
+                            
+ 
+      
+      
+<!--       <div class="row justify-content-md-center">
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                  &nbsp;<input type="file" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+            </div>
+      </div> -->
+      <!-- 
+      <div class="row justify-content-md-center">
+        <button type="submit" class="btn btn-outline-secondary" style="width: 20%; font-weight: bold">
+             등   록          
+            </button> -->
+
+
 </body>
 </html>

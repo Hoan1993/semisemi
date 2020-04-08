@@ -102,4 +102,17 @@ public class ArticleVO {
 		this.article_media = article_media;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "ArticleVO [article_no=" + article_no + ", article_writer=" + article_writer + ", article_name="
+				+ article_name + ", article_media=" + article_media + ", article_gen1=" + article_gen1
+				+ ", article_gen2=" + article_gen2 + ", article_title=" + article_title + ", article_cont="
+				+ article_cont + ", article_file1=" + article_file1 + ", article_file2=" + article_file2
+				+ ", article_file3=" + article_file3 + ", article_file4=" + article_file4 + ", article_hit="
+				+ article_hit + ", article_date=" + article_date + "]";
+	}
+	
+	
+	
 }

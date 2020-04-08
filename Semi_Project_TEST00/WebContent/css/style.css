@@ -35,7 +35,6 @@ body{	/* 문서 전체에 대한 디자인 적용 */
 header{	/* 머릿말 디자인 */
 	height: 200px;
 	margin-top: 20px;
-	
 	background-image: url("../images/bg.jpg"); 
 	background-repeat: no-repeat;	/* 이미지 반복 없음 */
 	background-position: center top;	/* 이미지 위치 */
