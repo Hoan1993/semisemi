@@ -16,7 +16,9 @@ public class ArticleContAction implements Action {
 			throws IOException, ServletException {
 		
 		int article_no = Integer.parseInt(request.getParameter("no"));
+		
 		ArticleDAO dao = ArticleDAO.getInstance();
+		
 		ActionForward forward = new ActionForward();
 		
 		if(dao.articleHit(article_no)==1) {

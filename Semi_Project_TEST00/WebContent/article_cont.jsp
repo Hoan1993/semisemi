@@ -34,6 +34,12 @@
   color: #999;
 }
 
+ .btn btn-primary {
+	width : 100px;
+	height: 30px;
+	align: right;
+} 
+
 </style>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -45,18 +51,32 @@
 	</div>
 	
 	<div class="container">
+	<form action="board_update.do" method="post" class="frm">
 		<c:set var="article" value="${Cont }" />
-		<div class="col-sm-8 blog-main">
+		
+		<input type="hidden" id="writer" name="writer" value="${article.getArticle_writer() }">
+		<input type="hidden" id="no" name="no" value="${article.getArticle_no() }">
+		
+		<div class="col-sm-10 blog-main">
 			<div class="blog-post">
+			
+				
+				
+				
 				<h2 class="blog-post-title">${article.getArticle_title() }</h2>
+				<div style="float: right; width: auto;">
+				<input type="submit" id="form-submit" class="btn btn-primary" value="수정하기">
+				</div>
 				<p class="blog-post-meta">${article.getArticle_date() }
 				<a href="#">${article.getArticle_name() }</a>
 				</p>
+				
 				<hr>
 				<p>
 				<font style="vertical-align: inherit;">${article.getArticle_cont() }</font>
 				</p>
 			</div>
+			
 			<!-- /.blog-post -->
 
 			<nav>
@@ -65,15 +85,15 @@
 					<li><a href="#">Next</a></li>
 				</ul>
 			</nav>
-
+			
 		</div>
 		<!-- /.blog-main -->
 		
 		<div>
 			<%@ include file="../include/sidebar.jsp"%>
 		</div>
+		</form>
 	</div>
-
-
+	
 </body>
 </html>
